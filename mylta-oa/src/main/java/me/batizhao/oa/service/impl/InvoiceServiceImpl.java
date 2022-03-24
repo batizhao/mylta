@@ -9,7 +9,7 @@ import me.batizhao.common.core.exception.NotFoundException;
 import me.batizhao.oa.domain.Invoice;
 import me.batizhao.oa.mapper.InvoiceMapper;
 import me.batizhao.oa.service.InvoiceService;
-import me.batizhao.oa.service.TaskService;
+import me.batizhao.terrace.api.TaskService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

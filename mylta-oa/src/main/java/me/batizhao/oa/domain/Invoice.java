@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
+import me.batizhao.terrace.task.Task;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
