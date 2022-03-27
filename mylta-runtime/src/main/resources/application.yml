@@ -1,5 +1,5 @@
 server:
-  port: 8888
+  port: 9999
   shutdown: graceful
 
 pecado:
@@ -24,8 +24,6 @@ pecado:
 #    bucket: stalber
 #    access-key: minio
 #    secret-key: minio123
-  code:
-    template-url: templates/pecado
   terrace:
     enabled: true
     client-id: jsoa
@@ -74,18 +72,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: password
-    url: jdbc:mysql://127.0.0.1:3306/stalber?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-  liquibase:
-    change-log: classpath:db/changelog-master.xml
-  redis:
-    host: 127.0.0.1
-    port: 6379
-  task:
-    execution:
-      threadNamePrefix: pecadoTask-
-      shutdown:
-        awaitTermination: true
-        awaitTerminationPeriod: PT1M
+    url: jdbc:mysql://127.0.0.1:3306/mylta?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
   web:
     locale: zh_CN
 
@@ -101,7 +88,6 @@ logging:
       web: debug
       security: debug
     me.batizhao: debug
-    liquibase.executor: debug
 
 ---
 
@@ -114,7 +100,7 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: password
-    url: jdbc:mysql://127.0.0.1:3306/stalber-test?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://127.0.0.1:3306/mylta-test?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
 
 pecado:
   captcha:
@@ -124,25 +110,3 @@ pecado:
   token:
     admin: Bearer eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJjYTAyOWJmZS02Mzg2LTQ1M2YtYjdiMy1jZjUwZGEyMDNhNmMifQ.tkqZq2vqLEW8ghGZqbpd10xNsb_-SfH-ApcMnKZ0wuF99B1cHGRe3BGWm2tAt2kMDuEc02efAqnXdqhcB2xBtpL4ltC2qc6Svf9g74etlggKW5C-X4z-uMla11WQcWrgEBC90niwFCNb2CRjuvTv4eshHV0xZUlYIHqAx0nlem1npkJorwOHe7-1t60wkh1eNVLf3CG-Oa1Rzo2K7d_fT_Q2Mj7ez3QxEE-1rB5X3cUWRlvL7qMnAM75G6iYH4sko3sNzgIuaEwLD9toV1V9tYfJFuwA7CruXkgJ_UBwzt28DF4ifLTIYAS4fHW1zJ-GmKdRM3NOItg9crnl5Bj-6Q
     user: Bearer eyJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJmYTk0ZTk4ZC0zNzBjLTQwZWQtYWM4MC1lMzE2MzNjNTI4YzcifQ.Xd7_z42XK7hB5wJV6X3eLoiiAIceVPY7NFcr40ptGC5YFIwnBGsHMAC8kz30X8_wA8uUcwSARsPhSrbVXBUrY8-CIakpctWCUtHENtQws0jWv6v-pH37I-iiq7titUoClGkSDQoyTIQZ6npdj6ktCjpC_FwSWHwmH8rH6augk92CyM40QGPiAPzAyw79TARLJ3ohB0p2lNktsPVhg8Bq2JQ0itiCZD_pSlTV5TkxMklFxA915GbxKZvotbdCU6B1hz6qfn4dhHiCDfUPKKOpQ3Xhb0BQOyFR4h1RHiKZUJZL8PV7apCdspt-Xhx32ss6q3U26brFeRXkgnH1AgGWnQ
-
----
-
-spring:
-  config:
-    activate:
-      on-profile: demo
-
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: root
-    url: jdbc:mysql://172.31.21.180:30306/stalber?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
-  redis:
-    host: ${REDIS_HOST:127.0.0.1}
-    port: ${REDIS_PORT:6379}
-    password: ${REDIS_PASSWORD:""}
-
-server:
-  port: 8080
-  servlet:
-    context-path: /api
