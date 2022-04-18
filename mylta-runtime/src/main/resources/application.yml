@@ -69,10 +69,14 @@ spring:
   profiles:
     active: @profiles.active@
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: password
-    url: jdbc:mysql://127.0.0.1:3306/mylta?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: root
+          password: password
+          url: jdbc:mysql://127.0.0.1:3306/mylta?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
   web:
     locale: zh_CN
 
@@ -97,10 +101,14 @@ spring:
       on-profile: test
 
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: password
-    url: jdbc:mysql://127.0.0.1:3306/mylta-test?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
+    dynamic:
+      primary: master
+      datasource:
+        master:
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          username: root
+          password: password
+          url: jdbc:mysql://127.0.0.1:3306/mylta-test?useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai
 
 pecado:
   captcha:
